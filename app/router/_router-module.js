@@ -1,11 +1,24 @@
 'use strict';
 
 angular.module('jslab.router', ['ui.router'])
-.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home');
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider
+    .otherwise('/');
   $stateProvider
     .state('home', {
-      url: '/home',
-      templateUrl: 'home/home.html'
+      url: '/',
+      views: {
+        'nav': { templateUrl: 'home/nav.html' },
+        'content': { templateUrl: 'home/content.html' },
+        'repl': { templateUrl: 'home/repl.html' }
+      }
+    })
+    .state('objects', {
+      url: '/objects',
+      views: {
+        'nav': { templateUrl: 'home/nav.html' },
+        'content': { templateUrl: 'objects/content.html' },
+        'repl': { templateUrl: 'objects/repl.html' }
+      }
     });
-});
+}]);

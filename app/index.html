@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
   <title>BTI360 JS Lab</title>
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/app.css">
@@ -14,7 +15,14 @@
 </head>
 <body ng-app="jslab" ng-strict-di>
 
-  <div ui-view></div>
+  <div class="container">
+    <div class="row">
+      <div ui-view="nav" class="col-md-2"></div>
+      <div ui-view="content" class="col-md-5 pg-module"></div>
+      <div ui-view="repl" class="col-md-5"></div>
+    </div>
+  </div>
+
 
 </body>
 </html>

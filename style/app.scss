@@ -1,5 +1,12 @@
-$primary-color: #333;
+$primary-color: #F6E3CE;
 
 body {
-  color: $primary-color;
+  background-color: $primary-color;
+}
+
+.pg-module {
+    background-color: #fff;
+    margin: {
+      bottom: 15px;
+    }
 }

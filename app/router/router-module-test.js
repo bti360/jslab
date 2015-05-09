@@ -14,6 +14,7 @@ describe('Router', function() {
   }));
 
   it('should respond to URLs', function() {
-    expect($state.href('home', { id: 1 })).toEqual('#/home');
+    expect($state.href('home')).toEqual('#/');
+    expect($state.href('objects')).toEqual('#/objects');
   });
 });

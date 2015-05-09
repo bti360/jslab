@@ -14,7 +14,7 @@ var files = [
 var options = {
     file: 'templates.js',
     options: {
-        module: 'app.templates',
+        module: 'jslab.templates',
         standalone: true
     }
 };
