@@ -6,6 +6,7 @@ gulp.paths = {
   app: 'app',
   dist: 'dist',
   e2e: 'e2e',
+  static: 'static',
   style: 'style',
   tasks: 'tasks'
 };
