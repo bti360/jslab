@@ -3,13 +3,13 @@
 var gulp = require('gulp');
 var karma = require('karma').server;
 
-gulp.task('test', ['scripts:test'], function(done) {
+gulp.task('test', ['scripts'], function(done) {
   karma.start({
     configFile: __dirname + '/../karma.conf.js',
     singleRun: true
   }, done);
 });
-gulp.task('test:watch', ['scripts:test'], function(done) {
+gulp.task('test:watch', ['scripts'], function(done) {
   karma.start({
     configFile: __dirname + '/../karma.conf.js',
     singleRun: false
