@@ -17,7 +17,12 @@
 
   <div class="container">
     <div class="row">
-      <div ui-view="nav" class="col-md-2"></div>
+      <div class="col-md-2">
+        <ul>
+          <li><a ui-sref="home">Home</a></li>
+          <li><a ui-sref="objects">Objects</a></li>
+        </ul>
+      </div>
       <div ui-view="content" class="col-md-5 pg-module"></div>
       <div ui-view="repl" class="col-md-5"></div>
     </div>

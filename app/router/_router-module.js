@@ -8,7 +8,6 @@ angular.module('jslab.router', ['ui.router'])
     .state('home', {
       url: '/',
       views: {
-        'nav': { templateUrl: 'home/nav.html' },
         'content': { templateUrl: 'home/content.html' },
         'repl': { templateUrl: 'home/repl.html' }
       }
@@ -16,7 +15,6 @@ angular.module('jslab.router', ['ui.router'])
     .state('objects', {
       url: '/objects',
       views: {
-        'nav': { templateUrl: 'home/nav.html' },
         'content': { templateUrl: 'objects/content.html' },
         'repl': { templateUrl: 'objects/repl.html' }
       }
