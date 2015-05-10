@@ -15,19 +15,31 @@
 </head>
 <body ng-app="jslab" ng-strict-di>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-        <ul>
-          <li><a ui-sref="home">Home</a></li>
-          <li><a ui-sref="objects">Objects</a></li>
-        </ul>
+  <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+    <div class="row text-center">
+      <img class="app-logo" src="images/logo266x140@2x.png"/>
+    </div>
+    <hr/>
+    <a class="navmenu-brand" ui-sref="home" title="Home">JS Lab</a>
+    <ul class="nav navmenu-nav">
+      <li><a ui-sref="objects" title="Objects">Objects</a></li>
+    </ul>
+  </div>
+  <div class="canvas">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas=".canvas">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div ui-view="content" class="col-md-6"></div>
+        <div ui-view="repl" class="col-md-6"></div>
       </div>
-      <div ui-view="content" class="col-md-5 pg-module"></div>
-      <div ui-view="repl" class="col-md-5"></div>
     </div>
   </div>
-
-
 </body>
 </html>

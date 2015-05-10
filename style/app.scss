@@ -1,12 +1,13 @@
-$primary-color: #F6E3CE;
+$fadedOrange: #F6E3CE;
 
-body {
-  background-color: $primary-color;
+html, body {
+  height: 100%;
 }
 
-.pg-module {
-    background-color: #fff;
-    margin: {
-      bottom: 15px;
-    }
+.canvas {
+  background-color: $fadedOrange;
+}
+
+.app-logo {
+  height: 6em;
 }

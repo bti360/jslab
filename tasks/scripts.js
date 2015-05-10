@@ -14,6 +14,8 @@ function packageJsDependencies(min) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
     (min) ? 'bower_components/bootstrap/dist/js/bootstrap.min.js' :
       'bower_components/bootstrap/dist/js/bootstrap.js',
+    (min) ? 'bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js' :
+      'bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js',
     'bower_components/modernizer/modernizr.js'
   ])
   .pipe(plugins.sourcemaps.init())
