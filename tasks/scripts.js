@@ -12,6 +12,14 @@ function packageJsDependencies(min) {
       'bower_components/angular/angular.js',
     (min) ? 'bower_components/angular-ui-router/release/angular-ui-router.min.js' :
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+    (min) ? 'bower_components/ace-builds/src-min-noconflict/ace.js' :
+      'bower_components/ace-builds/src-noconflict/ace.js',
+    (min) ? 'bower_components/ace-builds/src-min-noconflict/mode-javascript.js' :
+      'bower_components/ace-builds/src-noconflict/mode-javascript.js',
+    (min) ? 'bower_components/ace-builds/src-min-noconflict/theme-monokai.js' :
+      'bower_components/ace-builds/src-noconflict/theme-monokai.js',
+    (min) ? 'bower_components/angular-ui-ace/ui-ace.min.js' :
+      'bower_components/angular-ui-ace/ui-ace.js',
     (min) ? 'bower_components/bootstrap/dist/js/bootstrap.min.js' :
       'bower_components/bootstrap/dist/js/bootstrap.js',
     (min) ? 'bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js' :

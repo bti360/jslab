@@ -3,5 +3,7 @@
 angular.module('jslab', [
   'jslab.router',
   'jslab.templates',
-  'jslab.home'
+  'jslab.components',
+  'jslab.home',
+  'jslab.objects'
 ]);
