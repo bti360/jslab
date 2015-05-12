@@ -4,12 +4,14 @@
   "description": "jslab",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node node_modules/bower/bin/bower install"
   },
   "author": "Ryan Brady & Kyle Roberts",
   "license": "MIT",
   "repository": "bti360/jslab",
   "devDependencies": {
+    "bower": "^1.4.1",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-angular-templatecache": "^1.6.0",
