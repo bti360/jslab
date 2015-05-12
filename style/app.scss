@@ -12,4 +12,12 @@ html, body {
   height: 6em;
 }
 
-.ace_editor { height: 200px; }
+.ace_editor {
+  height: 200px;
+  margin-top: 2em;
+}
+
+pre {
+  white-space: initial;
+  padding-left: 2em;
+}
