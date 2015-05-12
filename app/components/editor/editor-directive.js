@@ -15,8 +15,7 @@ angular.module('jslab.components')
       angular.forEach(values, function(value) {
         var result = '';
         try {
-          // TODO: Find a way without using eval
-          result = eval(value); // jshint ignore:line
+          result = $scope.$eval(value);
         } catch (e) {
           $log.error(e);
         }
