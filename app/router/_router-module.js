@@ -18,5 +18,12 @@ angular.module('jslab.router', ['ui.router'])
         'content': { templateUrl: 'objects/content.html' },
         'repl': { templateUrl: 'objects/repl.html' }
       }
+    })
+    .state('functions', {
+      url: '/functions',
+      views: {
+        'content': { templateUrl: 'functions/content.html' },
+        'repl': { templateUrl: 'functions/repl.html' }
+      }
     });
 }]);

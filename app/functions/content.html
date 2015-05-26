@@ -1,0 +1,107 @@
+<h1>Functions</h1>
+
+<p>
+	Understanding JavaScript functions, and the many ways they can be used, is one of the best ways to get your JS skills 
+	to the next level.
+</p>
+
+<p>
+	There are a few different ways that you can define functions. We'll start with the simplest to understand, the regular
+	function declaration:
+</p>
+
+<pre class="code-example">
+function add(x) {
+  return 4 + x;
+}
+</pre>
+
+<p>
+	We can call "add" elsewhere in our script with a single argument:
+</p>
+
+<pre>
+	add(3);
+</pre>
+
+<p>
+	This form of method declaration is usually best used in situations where you want to break up a larger function's
+	internals into separate private functions that won't be reused again:
+<p>
+
+<pre class="code-example">
+function doALotOfThings() {
+  doA();
+  doB();
+
+  function doA() {
+    // code for doing 'A'
+  }
+
+  function doB() {
+    // code for doing 'B'
+  }
+
+}
+</pre>
+
+<p class="bg-warning" style="padding: 1rem;">
+	<span class="fa fa-exclamation-circle"></span>&nbsp;
+	Defining functions like this at the top level of a file or script block (i.e. not in an object or within another 
+	function) will put the function under the global scope, which we generally want to avoid.
+</p>
+
+<p>
+	The second way of declaring a function is on an object. This type of function is typically called a "method":
+<p>
+
+<pre class="code-example">
+var math = {
+  add: function(x) {
+    return 4 + x;
+  }
+};
+</pre>
+
+<p>
+	You'll find yourself declaring functions in this fashion often, since you'll either want to call a method on an
+	object or namespace functions so that they don't sit direction under the global namespace. To call the method above,
+	we execute it like so:
+</p>
+
+<pre>
+	math.add(3);
+</pre>
+
+<p>
+	The third way of declaring functions involves creating contructor functions. These functions allow us to create
+	and initialize JavaScript objects:
+</p>
+
+<pre class="code-example">
+function Animal(name, type) {
+  this.name = name;
+  this.type = type;
+
+  this.sayHi = function() {
+    return "Hi, I'm " + this.name + " the " + this.type;
+  }
+}
+</pre>
+
+<p>
+	Using this function, we can create Animal objects and use their methods to act on them. Constructors are special in 
+	that you have to call it using the <code>new</code> keyword:
+</p>
+
+<pre class="code-example">
+var dumbo = new Animal("dumbo", "elephant");
+dumbo.sayHi();
+</pre>
+
+<p class="bg-warning" style="padding: 1rem;">
+	<span class="fa fa-exclamation-circle"></span>&nbsp;
+	Forgetting the <code>new</code> keyword can result in creating an object where the <code>this</code> is bound to the
+	global scope <code>window</code> instead of a new object's scope. Make sure to always use <code>new</code>!
+</p> 
+

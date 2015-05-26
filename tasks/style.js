@@ -5,7 +5,8 @@ var paths = gulp.paths;
 var plugins = gulp.plugins;
 
 function packageCssDependencies(min) {
-  gulp.src('bower_components/bootstrap/dist/fonts/**/*.*')
+  gulp.src(['bower_components/bootstrap/dist/fonts/**/*.*', 
+      'bower_components/components-font-awesome/fonts/**/*.*'])
     .pipe(gulp.dest(paths.dist + '/fonts'));
   gulp.src([
     (min) ? 'bower_components/bootstrap/dist/css/bootstrap.min.css' :
@@ -13,7 +14,9 @@ function packageCssDependencies(min) {
     (min) ? 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css' :
       'bower_components/bootstrap/dist/css/bootstrap-theme.css',
     (min) ? 'bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css' :
-      'bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css'
+      'bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css',
+    (min) ? 'bower_components/components-font-awesome/css/font-awesome-min.css' :
+      'bower_components/components-font-awesome/css/font-awesome.css'
   ])
   .pipe(plugins.sourcemaps.init())
   .pipe(plugins.concat('vendor.css'))
