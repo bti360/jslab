@@ -6,5 +6,6 @@ angular.module('jslab', [
   'jslab.components',
   'jslab.home',
   'jslab.objects',
-  'jslab.functions'
+  'jslab.functions',
+  'jslab.angular'
 ]);
