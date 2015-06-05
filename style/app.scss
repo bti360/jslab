@@ -1,7 +1,21 @@
 $fadedOrange: #F6E3CE;
 
 html, body {
-  height: 100%;
+  height: 100vh;
+}
+
+.jslab-container {
+  padding: {
+    left: 5vw;
+    right: 5vw;
+  }
+}
+
+.repl {
+  padding: {
+    top: 2rem;
+    bottom: 2rem;
+  }
 }
 
 .canvas {
@@ -13,15 +27,22 @@ html, body {
 }
 
 .ace_editor {
-  height: 200px;
-  margin-top: 2em;
+  height: 50vh;
+  margin-top: 2vh;
 }
 
 pre {
   white-space: initial;
-  padding-left: 2em;
+  padding-left: 2vw;
 }
 
 .code-example {
 	white-space: pre-wrap;
 }
+
+._cssdeck_embed {
+  border: 1px solid #3c404b;
+  width: 101%;
+  min-height: 95vh;
+}
+
