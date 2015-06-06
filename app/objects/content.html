@@ -1,1 +1,48 @@
 <h1>Objects</h1>
+
+<p>
+	JavaScript objects are a structure made up of key/value pairs. The keys are strings, and the values can be any 
+	JavaScript value or object, including functions. Here is the simplest way to create an object:
+</p>
+
+<pre class="code-example">
+var obj = {};
+</pre>
+
+<p>This creates an empty object with default object properties. Let's look at a more interesting example:</p>
+
+<pre class="code-example">
+var obj = {
+  "name": "Js Lab",
+  "numberOfChapters": 6,
+  "getAuthors": function() {
+    return "Ryan Brady & Kyle Roberts"
+  }
+};
+</pre>
+
+<p>
+	The object above contains three properties of different types. We can read any of these properties by calling the
+	property on the object using either dot notation or bracket notation:
+</p>
+
+<pre class="code-example">
+obj.name;
+obj['name'];
+
+obj.numberOfChapters;
+obj['numberOfChapters'];
+
+obj.getAuthors();
+obj['getAuthors']();
+</pre>
+
+<p>
+	The dot notation is usually preferable due to its better readability, but the bracket notation can be useful if we're
+	calling the property with a variable string.
+</p>
+
+<h3>References</h3>
+
+
+
