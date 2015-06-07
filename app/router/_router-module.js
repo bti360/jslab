@@ -26,6 +26,13 @@ angular.module('jslab.router', ['ui.router'])
         'repl': { templateUrl: 'functions/repl.html' }
       }
     })
+    .state('gotchas', {
+      url: '/gotchas',
+      views: {
+        'content': { templateUrl: 'gotchas/content.html' },
+        'repl': { templateUrl: 'gotchas/repl.html' }
+      }
+    })
     .state('angular', {
       url: '/angular',
       views: {

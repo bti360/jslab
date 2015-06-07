@@ -17,5 +17,6 @@ describe('Router', function() {
     expect($state.href('home')).toEqual('#/');
     expect($state.href('objects')).toEqual('#/objects');
     expect($state.href('functions')).toEqual('#/functions');
+    expect($state.href('gotchas')).toEqual('#/gotchas');
   });
 });
