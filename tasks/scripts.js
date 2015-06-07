@@ -35,6 +35,10 @@ function packageJsDependencies(min) {
 gulp.task('scripts', ['jscs', 'jshint', 'templates'], function(done) {
   packageJsDependencies(false);
   return gulp.src([paths.app + '/**/*.js', '!' + paths.app + '/**/*-test.js'])
+      .pipe(plugins.order([
+        '**/*-module.js',
+        '**/*.js'
+      ]))
       .pipe(plugins.sourcemaps.init())
       .pipe(plugins.concat('app.js'))
       .pipe(plugins.sourcemaps.write('.'))
@@ -44,6 +48,10 @@ gulp.task('scripts', ['jscs', 'jshint', 'templates'], function(done) {
 gulp.task('scripts:prod', ['jscs', 'jshint', 'templates'], function(done) {
   packageJsDependencies(true);
   return gulp.src([paths.app + '/**/*.js', '!' + paths.app + '/**/*-test.js'])
+      .pipe(plugins.order([
+        '**/*-module.js',
+        '**/*.js'
+      ]))
       .pipe(plugins.sourcemaps.init())
       .pipe(plugins.concat('app.js'))
       .pipe(plugins.uglify())

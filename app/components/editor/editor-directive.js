@@ -1,7 +1,7 @@
-'use strict';
-
 angular.module('jslab.components')
 .directive('jslabEditor', [function() {
+  'use strict';
+
   var controller = ['$scope', '$log', function($scope, $log) {
     $scope.aceLoaded = function(editor) {
       $log.debug('aceLoaded', editor, $scope);
