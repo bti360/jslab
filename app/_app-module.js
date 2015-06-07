@@ -7,5 +7,6 @@ angular.module('jslab', [
   'jslab.home',
   'jslab.objects',
   'jslab.functions',
+  'jslab.gotchas',
   'jslab.angular'
 ]);
