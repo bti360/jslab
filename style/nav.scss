@@ -1,6 +1,20 @@
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+
+      -webkit-box-shadow:$top $left $blur $color #{$inset};
+      -moz-box-shadow:$top $left $blur $color #{$inset};
+      box-shadow:$top $left $blur $color #{$inset};
+    }
+
 .navbar-toggle {
   float: left;
-  margin-left: 15px;
+  margin: {
+    top: 3vh;
+    left: 1vw;
+  }
+}
+
+.navbar-default {
+  @include box-shadow(0, 0px, 0px, rgba(0, 0, 0, 0), inset);
 }
 
 .navmenu {
@@ -16,7 +30,6 @@
   left: 0;
   z-index: 2;
   min-height: 100%;
-  padding: 50px 0 0 0;
   background: #fff;
 }
 
