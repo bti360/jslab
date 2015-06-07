@@ -1,1 +1,23 @@
 <h1>Common Gotchas</h1>
+
+<h4>Not declaring variables with <code>var</code></h4>
+<p>
+	Omitting the <code>var</code> when declaring a variable will make it global by default, which is rarely intended. Not
+	only do global variables pollute the global namespace, they can also result in hard-to-track bugs if the variable is
+	updated in different files. 
+</p>
+
+<h4>Creating built-in objects with the <code>new</code> keyword</h4>
+<p>
+	New JS developers will often create objects such as Array and Object with the new keyword (i.e. <code>var arr = 
+	new Array()</code> and <code>var obj = new Object()</code>). These constructors are technically correct, but the preferred way is to use the object initializer version of each (i.e. <code>var arr = []</code> and <code>var obj = {}</code>). Not only are these more succinct, but in the case of the Array constructor, subtle differences arise in the way the constructor is used compared to the initializer (try passing an integer into new Array() and then inspect its length).
+</p>
+
+<h4>Using <code>==</code> instead of <code>===</code></h4>
+
+<h4>Creating functions with long parameter lists</h4>
+
+<h3>References</h3>
+<ul>
+	<li>Effective JavaScript: Item 52</li>
+</ul>
