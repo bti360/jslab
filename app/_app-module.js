@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jslab', [
+var jslab = angular.module('jslab', [
   'jslab.router',
   'jslab.templates',
   'jslab.components',
@@ -10,3 +10,12 @@ angular.module('jslab', [
   'jslab.gotchas',
   'jslab.angular'
 ]);
+
+jslab.directive('jslabWarning', function() {
+	return {
+		restrict: 'E',
+		replace: true,
+		transclude: true,
+		templateUrl: 'templates/warning.html'
+	};
+});

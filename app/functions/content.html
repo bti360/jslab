@@ -45,11 +45,10 @@ function doALotOfThings() {
 }
 </pre>
 
-<p class="bg-warning" style="padding: 1rem;">
-	<span class="fa fa-exclamation-circle"></span>&nbsp;
+<jslab-warning>
 	Defining functions like this at the top level of a file or script block (i.e. not in an object or within another 
 	function) will put the function under the global scope, which we generally want to avoid.
-</p>
+</jslab-warning>
 
 <p>
 	The second way of declaring a function is on an object. This type of function is typically called a "method":
@@ -99,9 +98,8 @@ var dumbo = new Animal("dumbo", "elephant");
 dumbo.sayHi();
 </pre>
 
-<p class="bg-warning" style="padding: 1rem;">
-	<span class="fa fa-exclamation-circle"></span>&nbsp;
+<jslab-warning>
 	Forgetting the <code>new</code> keyword can result in creating an object where the <code>this</code> is bound to the
 	global scope <code>window</code> instead of a new object's scope. Make sure to always use <code>new</code>!
-</p> 
+</jslab-warning> 
 
