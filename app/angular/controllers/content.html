@@ -1,1 +1,35 @@
 <h1>Angular Controllers</h1>
+
+<p>
+  Angular controllers are used to modify the model objects. Controllers can setup the inital state of the model, change the model as events happen and setup watchers on the model object. Controllers are created using the <code>.controller(name, [dependencies, function()])</code> function on the Angular module object. There are a few different ways to declare Angular components, but you should always use the strict dependency injection format to avoid any issues with minification.
+</p>
+
+<pre class="code-example">
+// mymodule-controller.js
+// Retrieve previously created module and create controller
+angular.module('myModule')
+.controller('myController', ['dependency1', 'dependency2',
+  function(dependency1, dependency2) {
+    'use strict';
+  
+    var myController = this;
+  
+    myController.square = function(value) {
+      return value * value;
+    };
+  }
+]);
+
+//template.html
+<div ng-controller="myController as myController">
+  Square of <input ng-model="number"> = {{ myController.square(number) }}
+</div>
+</pre>
+
+<jslab-tip>
+  It's a good idea to create a variable for the controller and assign it to <code>this</code>. Each variable or function you want to expose on the controller object then gets added to that variable. When you reference the controller in your template or router, use the controllerAs syntax and use the same variable name. This will help avoid any questions about what is or is not available in the template.
+</jslab-tip>
+
+<jslab-warning>
+  Never directly query or manipulate the DOM in an Angular controller. Putting any DOM logic in a controller makes unit testing the controller much more difficult and violates the MVC pattern. To update the DOM from the controller, you should update the model which is data bound to the template. If you need manual DOM manipulation, you should use a <a ui-sref="angular-directives" title="Angular Directives">directive</a> instead. Additionally, you shouldn't make $http REST calls using controllers either. Any http calls should be made in a service or factory.
+</jslab-warning>
