@@ -38,9 +38,9 @@ angular.module('myModule')
 </div>
 </pre>
 
-<jslab-tip>
+<jslab-warning>
   Don't create directives with single word names. To make sure your directives don't conflict with others, use the same namespace that is used throughout the rest of the application.
-</jslab-tip>
+</jslab-warning>
 
 <jslab-tip>
   Declaring a scope variable in your directive creates an isolate scope that doesn't inherit from the parent scope. Data is then passed into the scope using HTML attributes when the directive is used. For scope variables using single word names is easier as it removes confusion over camel-case vs dashed names. Also, prefer having the attribute names in the template be the same as the scope variable name, so the shorthand scope syntax can be used.
