@@ -1,1 +1,48 @@
 <h1>Angular Routing</h1>
+
+<p>
+  Routing in Angular isn't handled by the core framework in Angular 1.x. Thus, there are several competing libraries that are used for routing. The core team created <a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> for simple routing needs. For most larger applications, the currently preferred library is <a href="https://github.com/angular-ui/ui-router">ui-router</a>. UI Router uses states instead of routes which allows for more complex behavior such as named, nested and parallel views.
+</p>
+
+<p>
+  To use UI Router, the <code>ui.router</code> module must be added to your application's dependencies.
+</p>
+
+<pre class="code-example">
+// myrouter-module.js
+// Create module
+angular.module('myRoutingModule', ['ui.router']);
+// mymodule-router.js
+// Retreive router moduleand configure states
+angular.module('myRoutingModule')
+.config(['$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
+    'use strict';
+  
+    // For any unmatched url, redirect to /home
+    $urlRouterProvider.otherwise("/home");
+  
+    $stateProvider
+      .state('home', {
+        url: "/home",
+        templateUrl: "home.html"
+      })
+      .state('about', {
+        url: "/about",
+        templateUrl: "about.html",
+        controller: 'myAboutController',
+        controllerAs: 'myAboutController'
+      })
+  }
+]);
+
+//index.html
+<ul class="nav navmenu-nav">
+<li><a ui-sref="home" title="Home">Home</a></li>
+<li><a ui-sref="about" title="About Me">About</a></li>
+</ul>
+</pre>
+
+<jslab-tip>
+  Create a separate module for the router in your Angular application. Only require ui.router on that module instead of on the global module. This will help isolate the routing code to enable easier migration to a different routing library in the future if needed.
+</jslab-tip>
