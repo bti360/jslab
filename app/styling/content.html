@@ -1,0 +1,87 @@
+<h1>Code Styling</h1>
+
+<h4>Quotes and Spaces</h4>
+<p>
+  The debate over quotes and spaces is one of the longest running in the JavaScript communtiy. It's not quite vim vs. emacs, but it's pretty close. The most important thing is to pick one style and stick with it in your entire project. As long as each developer uses the same style, either choice is valid. Most JavaScript developers seem to prefer single quotes and indentation using 2 spaces, so that is what we recommend.
+</p>
+<pre class="code-example">
+//Do This
+var name = 'John Doe';
+function getName() {
+  return this.name; // 2 spaces indent
+}
+
+/Don't Do This
+var name = "John Doe";
+function getName() {
+    return this.name; // Tab indent
+}
+</pre>
+
+<h4>Variable Declaration</h4>
+<p>
+  Only declare 1 variable per line and hoist variables to the top. Single variable declaration makes it much easier to remove or comment out a single variable later and hoisting makes the implicit hoisting that JavaScript does in the background explicit to make errors easier to see.
+</p>
+<pre class="code-example">
+//Do This
+var one = 1;
+var two = 2;
+
+/Don't Do This
+var one = 1,
+    two = 2;
+
+var one = 1, two = 2;
+</pre>
+
+<h4>Semicolons</h4>
+<p>
+  Always use semicolons. Even though it is valid JavaScript to not use semicolons, the JavaScript interpreter will attempt to infer where the semicolons go if they are missing. This can cause issues in some cases, so always use the semicolons to make it explicit to the interpreter.
+</p>
+<pre class="code-example">
+//Do This
+var one = 1;
+getName();
+
+/Don't Do This
+var one = 1
+getName()
+</pre>
+
+<h4>Naming</h4>
+<p>
+  Files, variables and functions should always use descriptive names. Prefer full, English nouns when naming variables and verbs when naming functions. For getter/setter functions, use get* and set* function names.
+</p>
+<pre class="code-example">
+//Do This
+var controller = {};
+var height = 100;
+function getHeight() {
+}
+
+/Don't Do This
+var ctrl = {};
+var h = 100;
+function findHeight() {
+}
+</pre>
+
+<h4>Strict Mode</h4>
+<p>
+  As discussed on the <a ui-sref="gotchas" title="Gotchas">Gotchas</a> page, you should always use strict mode. To not conflict with other packages, prefer the non-global strict mode. After the strict mode statement, leave a single empty line.
+</p>
+<pre class="code-example">
+//Do This
+function getHeight() {
+  'use strict';
+  
+  return this.height;
+}
+
+/Don't Do This
+'use strict';
+
+fucntion getHeight() {
+  return this.height;
+};
+</pre>
