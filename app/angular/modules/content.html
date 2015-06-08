@@ -31,5 +31,10 @@ describe('myModule tests', function() {
 </pre>
 
 <jslab-tip>
-For each Angular application, you should create an application-level module that handles global dependencies. Then, each feature of the app should have its own module. Additionally, each reusable component of the app, such as directives and services, should also have their own modules.
+For each Angular application, you should create an application-level module that handles global dependencies. The application should be then be structured using a feature or pod structure where each feature of the app has its own folder and module. The modules should be namespaced under a common global name for your application. Additionally, each reusable component of the app, such as directives and services, should also have their own modules.
 </jslab-tip>
+
+<jslab-tip>
+Each file should contain a single component and should be named according to a common naming pattern, such as module-type.js. For example, the controller in the home module should be named home-controller.js. Unit test files should be placed along the source code with -test appended to the file name, such as home-controller-test.js. All file names should be lower cased, dasherized and descriptive.
+</jslab-tip>
+
