@@ -42,6 +42,30 @@ obj['getAuthors']();
 	calling the property with a variable string.
 </p>
 
+<p>
+	Objects can also be created by defining a function and then calling that function with the <code>new</code> keyword.
+	These types of functions are called constructor functions. The first letter of the function is typically capitalized
+	to denote that they are constructors:
+</p>
+
+<pre class="code-example">
+function Animal() {
+  // initialization code
+}
+var a = new Animal();   // creates a new Animal object
+</pre>
+
+<p>
+	While the object literal notation is useful for creating quick one-off objects, it's not as easy to use when dealing 
+	with behaviors or inheritance. In general, use literals when you need to pass a map of information (and simple 
+	behaviors) between functions, and constructor functions when you need to model anything more complicated.
+</p>
+
+<jslab-warning>
+	Built-in JS objects should rarely be called with the <code>new</code> keyword. See the <a href="#/gotchas">Gotchas</a> 
+	section for more info.
+</jslab-warning>
+
 <h3>References</h3>
 
 
