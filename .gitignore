@@ -30,5 +30,5 @@ bower_components
 *.sublime-*
 dist
 **/.DS_Store
-.c9/**
-.publish/**
+/.c9
+/.publish
