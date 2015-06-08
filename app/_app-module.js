@@ -8,5 +8,6 @@ angular.module('jslab', [
   'jslab.objects',
   'jslab.functions',
   'jslab.gotchas',
+  'jslab.debugging',
   'jslab.angular'
 ]);
