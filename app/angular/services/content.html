@@ -1,1 +1,30 @@
 <h1>Angular Services</h1>
+
+<p>
+  Angular <a href="https://docs.angularjs.org/guide/services">services</a> are used for code reuse and integration with external services, such as REST APIs and third-party libraries. Confusingly, there are three types of services in Angular, services, factories and providers. To simplify things, we suggest always using the factory type. Services are created using the <code>.factory(name, [dependencies, function()])</code> function on the Angular module object.
+</p>
+
+<pre class="code-example">
+// mymodule-service.js
+// Retrieve previously created module and create service
+angular.module('myModule')
+.factory('MyService', ['$http', '$log',
+  function($http, $log) {
+    'use strict';
+    
+    // Return factory object containing functions that are exposed on the service
+    return {
+      getFile: function(name) {
+        return $http.get('file/' + name);
+      },
+      sendFile: function(name, file) {
+        return $http.post('file/' + name, file);
+      }
+    };
+  }
+]);
+</pre>
+
+<jslab-tip>
+  Services are singletons that are lazily instantiated. This means that your application will only load the service when it's needed and will always return the same service every time. It's a good idea to wrap third-party libraries, such as <a href="http://d3js.org/">D3</a> or <a href="https://lodash.com/">Lodash</a>, in a service to enable easy mocking for testing and easy migration to other libraries in the future.
+</jslab-tip>
