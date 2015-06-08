@@ -39,6 +39,9 @@ pre {
   width: 101%;
   min-height: 95vh; }
 
+.gh-link {
+  margin-top: 20vh; }
+
 .navbar-toggle {
   float: left;
   margin-top: 3vh;
