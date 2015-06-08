@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>BTI360 JS Lab</title>
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="shortcut icon" href="/icons/favicon.ico">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="js/vendor.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/templates.js"></script>
+</head>
+<body ng-app="jslab">
+
+  <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+    <div class="row text-center">
+      <img class="app-logo" src="images/logo266x140@2x.png"/>
+    </div>
+    <hr/>
+    <a class="navmenu-brand" ui-sref="home" title="Home">JS Lab</a>
+    <ul class="nav navmenu-nav">
+      <li><a ui-sref="objects" title="Objects">Objects</a></li>
+      <li><a ui-sref="functions" title="Functions">Functions</a></li>
+      <li><a ui-sref="gotchas" title="Gotchas">Gotchas</a></li>
+      <li><a ui-sref="styling" title="Styling">Styling</a></li>
+      <li><a ui-sref="debugging" title="Debugging">Debugging</a></li>
+      <li><a ui-sref="angular" title="Angular">Angular</a>
+        <ul class="angular-nav nav navmenu-nav">
+          <li><a ui-sref="angular-modules" title="Angular Modules">Modules</a></li>
+          <li><a ui-sref="angular-controllers" title="Angular Controllers">Controllers</a></li>
+          <li><a ui-sref="angular-services" title="Angular Services">Services</a></li>
+          <li><a ui-sref="angular-routing" title="Angular Routing">Routing</a></li>
+          <li><a ui-sref="angular-directives" title="Angular Directives">Directives</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="canvas">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas=".canvas">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="container-fluid jslab-container">
+      <div class="row">
+        <div ui-view="content" class="content col-md-5"></div>
+        <div ui-view="repl" class="repl col-md-7"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
