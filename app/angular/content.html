@@ -1,1 +1,25 @@
 <h1>Angular</h1>
+
+<p>
+  For many years, client-side JavaScript applications meant an ever-growing mess of jQuery spaghetti code. Now, there are many different JavaScript frameworks that can be used to create a more structured and maintainable single page application (SPA).
+</p>
+
+<p>
+  The first major JS framework was <a href="http://backbonejs.org/">Backbone</a>. Backbone provided a Model-View-Controller (MVC) framework familiar to developers in other languages, such as Java. The MVC architecture allows you to define a JavaScript object that can be used as the model for your application. The controllers can manipulate the model programmatically while the view translates the model to the screen using templates and responds to DOM events from the browser. This was a huge leap forward in developing JavaScript apps, but you still had to manually keep the templates in sync with the changes to the model.
+</p>
+
+<p>
+  The next leap-forward in JavaScript MVC frameworks was two-way data binding. Two-way data binding automatically keeps the DOM and the application's models in sync. Any changes to the models from the controllers are automatically updated in the DOM. Also, any changes from the DOM such as user inputs are automatically applied to the model. The major frameworks that popularized two-way data binding are <a href="https://angularjs.org/">Angular</a>, <a href="http://emberjs.com/">Ember</a> and <a href="http://knockoutjs.com/">Knockout</a>.
+</p>
+
+<p>
+  <a href="https://angularjs.org/">Angular</a> is currently the <a href="http://www.improgrammer.net/wp-content/uploads/2015/03/Choosing-Javascript.jpg">most popular</a> JavaScript MV* framework. It was originally developed at Google and describes itself as a MVW (Model-View-Whatever) framework. Angular provides a complete application ecosystem including data binding, routing, dependency injection, modules, logging and other features.
+</p>
+
+<p>
+  Angular applications are usually bootstrapped in HTML by adding <a href="https://docs.angularjs.org/api/ng/directive/ngApp">ng-app</a> to the element that contains your application. This element is commonly the body element or a container div, but can be any HTML element. With a simple case like the example here, an Angular application can be created without any JavaScript at all. But, we can do much more once we start writing some JavaScript.
+</p>
+
+<jslab-tip>
+  When bootstrapping an Angular app, it's a good idea to use Strict Dependency Injection. This ensures that the application will work correclty with minification. To use strict DI, add the <code>ng-strict-di</code> directive to the same element as ng-app.
+</jslab-tip>
