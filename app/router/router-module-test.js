@@ -19,5 +19,10 @@ describe('Router', function() {
     expect($state.href('functions')).toEqual('#/functions');
     expect($state.href('gotchas')).toEqual('#/gotchas');
     expect($state.href('debugging')).toEqual('#/debugging');
+    expect($state.href('angular')).toEqual('#/angular');
+    expect($state.href('angular-modules')).toEqual('#/angular/modules');
+    expect($state.href('angular-controllers')).toEqual('#/angular/controllers');
+    expect($state.href('angular-directives')).toEqual('#/angular/directives');
+    expect($state.href('angular-routing')).toEqual('#/angular/routing');
   });
 });

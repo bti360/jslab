@@ -1,5 +1,6 @@
 angular.module('jslab.angular', [
-	'jslab.angular.controllers',
+  'jslab.angular.modules',
+  'jslab.angular.controllers',
 	'jslab.angular.directives',
 	'jslab.angular.routing'
 ]);

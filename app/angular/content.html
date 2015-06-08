@@ -12,6 +12,10 @@
   The next leap-forward in JavaScript MVC frameworks was two-way data binding. Two-way data binding automatically keeps the DOM and the application's models in sync. Any changes to the models from the controllers are automatically updated in the DOM. Also, any changes from the DOM such as user inputs are automatically applied to the model. The major frameworks that popularized two-way data binding are <a href="https://angularjs.org/">Angular</a>, <a href="http://emberjs.com/">Ember</a> and <a href="http://knockoutjs.com/">Knockout</a>.
 </p>
 
+<jslab-tip>
+With most modern JavaScript frameworks, including Angular, the need for jQuery has diminished. With jQuery apps, the DOM is the source of truth, while in an MVC framework the model is the source of truth. Instead of querying and manipulating the DOM directly, Angular apps should update the model instead. The DOM will automatically update using two-way data binding. If you find yourself frequently using jQuery to directly maniuplate the DOM in an Angular app, there is probably a better way to accomplish what you are trying to do.
+</jslab-tip>
+
 <p>
   <a href="https://angularjs.org/">Angular</a> is currently the <a href="http://www.improgrammer.net/wp-content/uploads/2015/03/Choosing-Javascript.jpg">most popular</a> JavaScript MV* framework. It was originally developed at Google and describes itself as a MVW (Model-View-Whatever) framework. Angular provides a complete application ecosystem including data binding, routing, dependency injection, modules, logging and other features.
 </p>
@@ -21,5 +25,5 @@
 </p>
 
 <jslab-tip>
-  When bootstrapping an Angular app, it's a good idea to use Strict Dependency Injection. This ensures that the application will work correclty with minification. To use strict DI, add the <code>ng-strict-di</code> directive to the same element as ng-app.
+When bootstrapping an Angular app, it's a good idea to use Strict Dependency Injection. This ensures that the application will work correclty with minification. To use strict DI, add the <code>ng-strict-di</code> directive to the same element as ng-app.
 </jslab-tip>
