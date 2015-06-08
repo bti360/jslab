@@ -1,1 +1,35 @@
 <h1>Angular Modules</h1>
+
+<p>
+  Angular applications use a module system to contain the different components of the application. The module system allows for both dependency injection and the single responsibility pattern of each component in a separate file.
+</p>
+
+<p>
+  Angular modules are defined using the <code>angular.module(name, [dependencies])</code> function. There are two ways to call this function. When the second parameter (dependencies) is passed to the function, it works as a setter function to create an Angular module. When the dependencies are omitted, the function works as a getter function to retrieve an existing Angular module.
+</p>
+
+<pre class="code-example">
+// Create module named myModule
+angular.module('myModule', ['dependencies1', 'dependencies2']);
+
+// Retrieve previously created module
+angular.module('myModule');
+
+// Create module without dependencies
+angular.module('otherModule', []);
+</pre>
+
+<p>
+  Angular modules are also helpful in unit tests to only load the modules needed for the test.
+</p>
+
+<pre class="code-example">
+describe('myModule tests', function() {
+  // Load myModule module for testing
+  beforeEach(module('myModule'));
+});
+</pre>
+
+<jslab-tip>
+For each Angular application, you should create an application-level module that handles global dependencies. Then, each feature of the app should have its own module. Additionally, each reusable component of the app, such as directives and services, should also have their own modules.
+</jslab-tip>

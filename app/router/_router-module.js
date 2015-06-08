@@ -62,6 +62,13 @@ angular.module('jslab.router', ['ui.router'])
           'repl': { templateUrl: 'angular/controllers/repl.html' }
         }
       })
+      .state('angular-services', {
+        url: '/angular/services',
+        views: {
+          'content': { templateUrl: 'angular/services/content.html' },
+          'repl': { templateUrl: 'angular/services/repl.html' }
+        }
+      })
       .state('angular-routing', {
         url: '/angular/routing',
         views: {
