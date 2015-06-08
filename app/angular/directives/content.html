@@ -1,1 +1,49 @@
 <h1>Angular Directives</h1>
+
+<p>
+  Angular <a href="https://docs.angularjs.org/guide/directive">directives</a> are used to attach new behavior to DOM elements or to create reusable components. Most of the commonly found Angular functions, such as ngModel, ngController, ngHide and ngShow are directives. Most of the features you will need in your application are already available using the built-in Angular directives. However, it may become necessary to create a custom directive. Directives are created using the <code>.directive(name, [dependencies, function()])</code> function on the Angular module object.
+</p>
+
+<pre class="code-example">
+// mymodule-controller.js
+// Retrieve previously created module and create directive with no dependencies
+angular.module('myModule')
+.directive('myDirective', [function() {
+    'use strict';
+  
+    return {
+      restrict: 'EA', // Restrict to element and attribute,
+      tempalteUrl: 'template.html',
+      scope: { // Create isolate scope
+        name: '=', // Bind to property in parent scope
+        age: @', // Bind to evaluated value of a property in parent scope
+        update: '&' // Bind to function in parent scope
+      },
+      link: function(scope, element, attrs, controllers) {
+        // Setup any observers or watchers and do DOM manipulation here
+      }
+    }
+  }
+]);
+
+//template.html
+<div ng-controller="myController as myController">
+  <!-- Use element syntax -->
+  <my-directive name="myController.userName" age="21" update="myController.updateName(name)">
+  </my-directive>
+  
+  <!-- Use attribute syntax -->
+  <div my-directive name="myController.userName" age="21" update="myController.updateName(name)">
+  </div>
+</div>
+</pre>
+
+<jslab-tip>
+  Don't create directives with single word names. To make sure your directives don't conflict with others, use the same namespace that is used throughout the rest of the application.
+</jslab-tip>
+
+<jslab-tip>
+  Declaring a scope variable in your directive creates an isolate scope that doesn't inherit from the parent scope. Data is then passed into the scope using HTML attributes when the directive is used. For scope variables using single word names is easier as it removes confusion over camel-case vs dashed names. Also, prefer having the attribute names in the template be the same as the scope variable name, so the shorthand scope syntax can be used.
+  <hr/>
+  Be cognizant of the difference between <code>=</code> and <code>@</code> in the isolate scope definition. The <code>=</code> binds the scope property to a property on the parent scope. The <code>@</code> binds the scope property to the evaluated value of the passed in DOM attribute. What this means is that the attribute value is alwyas a string and is necessitates using <code>$observe</code> in the link function if you want to respond to changes in the bound attribute.
+</jslab-tip>
