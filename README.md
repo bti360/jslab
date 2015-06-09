@@ -14,7 +14,7 @@ Note: If you get permission errors, follow this [guide](https://docs.npmjs.com/g
 
 Running the Project
 ========
-1. Run `gulp server` in your project root directory
+1. Run `gulp server:watch` in your project root directory (the watch command will autoload updates)
 1. Open your browser to [http://localhost:8080](http://localhost:8080)
 
 
