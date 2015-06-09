@@ -1,28 +1,80 @@
 <h1>Common Gotchas</h1>
 
-<h4>Not declaring variables with <code>var</code></h4>
-<p>
-	Omitting the <code>var</code> when declaring a variable will make it global by default, which is rarely intended. Not
-	only do global variables pollute the global namespace, they can also result in hard-to-track bugs if the variable is
-	updated in different files. 
-</p>
+<section>
+	<h4>Not declaring variables with <code>var</code></h4>
+	<p>
+		Omitting the <code>var</code> when declaring a variable will make it global by default, which is rarely intended. Not
+		only do global variables pollute the global namespace, they can also result in hard-to-track bugs if the variable is
+		updated in different files. 
+	</p>
+</section>
 
-<h4>Creating built-in objects with the <code>new</code> keyword</h4>
-<p>
-	New JS developers will often create objects such as Array and Object with the new keyword (i.e. <code>var arr = 
-	new Array()</code> and <code>var obj = new Object()</code>). These constructors are technically correct, but the preferred way is to use the object initializer version of each (i.e. <code>var arr = []</code> and <code>var obj = {}</code>). Not only are these more succinct, but in the case of the Array constructor, subtle differences arise in the way the constructor is used compared to the initializer (try passing an integer into new Array() and then inspect its length).
-</p>
+<section>
+	<h4>Creating built-in objects with the <code>new</code> keyword</h4>
+	<p>
+		New JS developers will often create objects such as Array and Object with the new keyword (i.e. <code>var arr = 
+		new Array()</code> and <code>var obj = new Object()</code>). These constructors are technically correct, but the preferred way is to use the object initializer version of each (i.e. <code>var arr = []</code> and <code>var obj = {}</code>). Not only are these more succinct, but in the case of the Array constructor, subtle differences arise in the way the constructor is used compared to the initializer (try passing an integer into new Array() and then inspect its length).
+	</p>
+</section>
 
-<h4>Using <code>==</code> instead of <code>===</code></h4>
+<section>
+	<h4>Using <code>==</code> instead of <code>===</code></h4>
+	<p>
+		There's rarely a good reason to use == instead of ===. The == operand attempts to coerce values of different type 
+		into the same type so that they can be compared, whereas === requires that the operands be the same type and value. Instead of relying on =='s unreliable output (see code sidebar), use the safer and predictable ===.
+	</p>
+</section>
 
-<h4>Creating functions with long parameter lists</h4>
+<section>
+	<h4>Functions with long parameter lists</h4>
+	<p>
+		Inexperienced JS developers (or other language developers for that matter) tend to pile on function parameters when
+		creating or editing a function. They'll add "just one more..." parameter until the function is bloated with 8 possible
+		parameters. Furthermore, JavaScript allows you to call a function without passing in all of the parameters,
+		so developers will often add parameters to the end of the function to make them optional.
+	</p>
+	<p>
+		A cleaner and more maintainable implementation is to design the function to take in a parameter object that acts as
+		a key/value map for any desired parameters:
 
-<h4>Strict Mode</h4>
-<p>
-  Strict mode should be declared by adding <code>'use strict';</code> to the beginning of either a JavaScript file or a function. The use strict expression was added in ECMAScript 5 and instructs the browser to run your code in strict mode. Strict mode makes writing JavaScript safer by turning bad syntax into errors. For example, you can't have undeclared variables in strict mode. This means that all variables must be created using a <code>var</code> statement. If you then mistype the name of the variable later, an error will be thrown as that mistyped variable hasn't been declared. Without strict mode, a new variable would be created without giving you any feedback that something was wrong. Other things such as using the <code>delete</code> and <code>with</code> statements are also prohibited.
-</p>
+<pre class="code-example"><code>function doSomething(config) {
+  smallTask(config.x);     // defined elsewhere
+  anotherTask(config.y);
+}
 
-<h3>References</h3>
-<ul>
-	<li>Effective JavaScript: Item 52</li>
-</ul>
+var params = {
+  x: 42,
+  y: { /* some object key/values */ }
+};
+doSomething(params);</code></pre>
+	
+	</p>
+
+	<jslab-tip>
+		It's a good idea to introduce a parameter object after you add a third or fourth parameter to a function. Two-parameter functions are fine, but you should start to feel uneasy if you often introduce more than that.
+	</jslab-tip>
+</section>
+
+<section>
+	<h4>eval</h4>
+	<p>
+		Just like ==, <code>eval</code> should almost never be used. There are a few downsides to eval'ing code, but the most
+		important one is that it can compromise the security of your application. <code>eval</code> executes JS code in as a
+		String, so any String from untrusted sources that gets passed to the eval function could result in a security hole.
+	</p>
+</section>
+
+<section>
+	<h4>Strict Mode</h4>
+	<p>
+	  Strict mode should be declared by adding <code>'use strict';</code> to the beginning of either a JavaScript file or a function. The use strict expression was added in ECMAScript 5 and instructs the browser to run your code in strict mode. Strict mode makes writing JavaScript safer by turning bad syntax into errors. For example, you can't have undeclared variables in strict mode. This means that all variables must be created using a <code>var</code> statement. If you then mistype the name of the variable later, an error will be thrown as that mistyped variable hasn't been declared. Without strict mode, a new variable would be created without giving you any feedback that something was wrong. Other things such as using the <code>delete</code> and <code>with</code> statements are also prohibited.
+	</p>
+</section>
+
+<section>
+	<h3>References</h3>
+	<ul>
+		<li>Effective JavaScript: Item 52</li>
+		<li>Crockford, Douglas. JavaScript: The Good Parts. Appendix B.
+	</ul>
+</section>
