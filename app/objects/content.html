@@ -1,5 +1,8 @@
 <h1>Objects</h1>
 
+<section>
+<h3>Creating Objects</h3>
+
 <p>
 	JavaScript objects are a structure made up of key/value pairs. The keys are strings, and the values can be any 
 	JavaScript value or object, including functions. Here is the simplest way to create an object:
@@ -16,7 +19,7 @@ var obj = {
   "name": "Js Lab",
   "numberOfChapters": 6,
   "getAuthors": function() {
-    return "Ryan Brady & Kyle Roberts"
+    return "Ryan Brady &amp; Kyle Roberts"
   }
 };
 </pre>
@@ -66,8 +69,65 @@ var a = new Animal();   // creates a new Animal object
 	title="Gotchas">Gotchas</a> 
 	section for more info.
 </jslab-warning>
+</section>
+
+<section>
+	<h3>Namespaces and Modules</h3>
+	<p>
+		JavaScript doesn't have a built-in notion of namespaces or packages, but we can use regular JS objects as an implementation. By default, any function or variable defined at the top-level of a file will be placed under the global
+		namespace object <code>window</code>. We want to avoid adding everything directly to this object because it adds the
+		possibility for name clashes, global state, and other issues. Instead we want to add a top-level namespace object to window, and add any objects or functions underneath.
+	</p>
+
+	<jslab-tip>
+		You've seen examples of a namespace object if you've used common JS libraries like <a href="https://jquery.com/">jQuery</a> or <a href="http://underscorejs.org/">Underscore.js</a>. Both of these libraries define global objects under window
+		(<a href="https://github.com/jquery/jquery/blob/master/src/jquery.js#L34">$</a> and <a href="http://underscorejs.org/docs/underscore.html#section-10">_</a> respectively) that contain the library's objects and functions. 
+	</jslab-tip>
+
+	<p>
+		The easiest way to create a namespace is to create an object on <code>window</code> or at the top level of a file 
+		(which will automatically create the object under <code>window</code>):
+	</p>
+<pre class="code-example">window.BTI360 = {};
+// or
+BTI360 = {};</pre>
+	
+	<p>
+		Now we have a namespace that we can create other objects under that namespace:
+	</p>
+
+<pre class="code-example">BTI360.MyObj = {};
+BTI360.AnotherObj = {
+  myFunction: function() {}
+};</pre>
+
+<p>
+	While namespacing like above can work for smaller projects, a more scalable approach to group your code is to use a module system such as <a href="http://requirejs.org/">RequireJS</a>. <a href="">Why AMD</a> and <a href="http://blog.millermedeiros.com/namespaces-are-old-school/">Namespaces are Old School</a> do an excellent job of describing why
+	module systems are a better solution than object namespacing. Using RequireJS, our previous namespaced code would look like the following module definitions:
+</p>
+
+<pre class="code-example">// Inside file bti360/MyObj.js
+define({
+  // property list
+});
+
+// Inside file bti360/AnotherObj.js
+define(['./MyObj'], {  // depends on MyObj
+  myFunction: function() {}
+});
+</pre>
+
+<p>
+	Now we have our code separated into modules under their own namespaced files, without the possibility of name clashing
+	or overwriting variables/methods.
+</p>
+
+</section>
 
 <h3>References</h3>
+<ul>
+	<li>Stefanov, Stoyan. JavaScript Patterns. Chapter 5.</li>
+</ul>
 
 
 
