@@ -4,16 +4,16 @@
   Angular <a href="https://docs.angularjs.org/guide/controller">controllers</a> are used to modify the model objects. Controllers can setup the inital state of the model, change the model as events happen and setup watchers on the model object. Controllers are created using the <code>.controller(name, [dependencies, function()])</code> function on the Angular module object. There are a few different ways to declare Angular components, but you should always use the strict dependency injection format to avoid any issues with minification.
 </p>
 
-<pre class="code-example">
+<pre class="code-example" ng-non-bindable>
 // mymodule-controller.js
 // Retrieve previously created module and create controller
 angular.module('myModule')
 .controller('myController', ['dependency1', 'dependency2',
   function(dependency1, dependency2) {
     'use strict';
-  
+
     var myController = this;
-  
+
     myController.square = function(value) {
       return value * value;
     };
@@ -21,9 +21,9 @@ angular.module('myModule')
 ]);
 
 //template.html
-<div ng-controller="myController as myController">
-  Square of <input ng-model="number"> = {{ myController.square(number) }}
-</div>
+<&zwj;div ng-controller="myController as myController">
+  Square of <&zwj;input ng-model="number"> = {{ myController.square(number) }}
+<&zwj;/div>
 </pre>
 
 <jslab-tip>
