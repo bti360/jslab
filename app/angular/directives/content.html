@@ -10,7 +10,7 @@
 angular.module('myModule')
 .directive('myDirective', [function() {
     'use strict';
-  
+
     return {
       restrict: 'EA', // Restrict to element and attribute,
       tempalteUrl: 'template.html',
@@ -27,15 +27,15 @@ angular.module('myModule')
 ]);
 
 //template.html
-<div ng-controller="myController as myController">
-  <!-- Use element syntax -->
-  <my-directive name="myController.userName" age="21" update="myController.updateName(name)">
-  </my-directive>
-  
-  <!-- Use attribute syntax -->
-  <div my-directive name="myController.userName" age="21" update="myController.updateName(name)">
-  </div>
-</div>
+<&zwj;div ng-controller="myController as myController">
+  <&zwj;!-- Use element syntax -->
+  <&zwj;my-directive name="myController.userName" age="21" update="myController.updateName(name)">
+  <&zwj;/my-directive>
+
+  <&zwj;!-- Use attribute syntax -->
+  <&zwj;div my-directive name="myController.userName" age="21" update="myController.updateName(name)">
+  <&zwj;/div>
+<&zwj;/div>
 </pre>
 
 <jslab-warning>

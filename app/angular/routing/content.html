@@ -18,10 +18,10 @@ angular.module('myRoutingModule')
 .config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
     'use strict';
-  
+
     // For any unmatched url, redirect to /home
     $urlRouterProvider.otherwise("/home");
-  
+
     $stateProvider
       .state('home', {
         url: "/home",
@@ -37,10 +37,10 @@ angular.module('myRoutingModule')
 ]);
 
 //index.html
-<ul class="nav navmenu-nav">
-<li><a ui-sref="home" title="Home">Home</a></li>
-<li><a ui-sref="about" title="About Me">About</a></li>
-</ul>
+<&zwj;ul class="nav navmenu-nav">
+<&zwj;li><&zwj;a ui-sref="home" title="Home">Home<&zwj;/a><&zwj;/li>
+<&zwj;li><&zwj;a ui-sref="about" title="About Me">About<&zwj;/a><&zwj;/li>
+<&zwj;/ul>
 </pre>
 
 <jslab-tip>

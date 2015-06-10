@@ -5,6 +5,6 @@ var paths = gulp.paths;
 var plugins = gulp.plugins;
 
 gulp.task('static', [], function(done) {
-  return gulp.src([paths.static + '/**'])
+  return gulp.src([paths.static + '/**/*.*'])
     .pipe(gulp.dest(paths.dist));
 });
