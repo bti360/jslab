@@ -34,7 +34,7 @@ section {
   left: 5rem;
   height: 100%;
   width: 45%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .repl {
@@ -43,7 +43,7 @@ section {
   right: 0rem;
   height: 100%;
   width: 52%;
-  overflow-y: scroll;
+  overflow-y: none;
   padding: {
     top: 2rem;
     bottom: 2rem;
