@@ -143,40 +143,80 @@ angular.module('jslab.router', ['ui.router'])
 
 
 angular.module('jslab.components')
-.directive('jslabEditor', [function() {
+.directive('jslabEditor', ['_', function(_) {
   'use strict';
 
-  var controller = ['$scope', '$log', function($scope, $log) {
+  var controller = ['$scope', function($scope) {
     $scope.aceLoaded = function(editor) {
-      $log.debug('aceLoaded', editor, $scope);
       editor.$blockScrolling = Infinity;
+      if ($scope.mode !== 'js') {
+        editor.session.setOption('useWorker', false);
+      }
     };
-    $scope.aceChanged = function(e) {
-      var editor = e[1];
-      $log.debug('aceChanged', e);
-      var values = editor.getValue().split('\n');
-      var results = [];
-      angular.forEach(values, function(value) {
-        var result = '';
-        try {
-          result = $scope.$eval(value);
-        } catch (e) {
-          $log.error(e);
-        }
-        results.push(result);
-      });
-      $scope.results = results;
-    };
+    $scope.aceChanged = _.debounce(function(e) {
+      $scope.update();
+    }, 500);
   }];
 
   return {
       restrict: 'E',
       scope: {
-        code: '='
+        code: '=',
+        mode: '@',
+        update: '&'
       },
       templateUrl: 'components/editor/editor.html',
       controller: controller
     };
+}]);
+
+angular.module('jslab.components')
+.directive('jslabLiveEdit', ['$document', function($document) {
+  'use strict';
+
+  return {
+      restrict: 'E',
+      scope: {
+        js: '@',
+        css: '@',
+        html: '@',
+        panes: '@'
+      },
+      templateUrl: 'components/liveedit/liveedit.html',
+      controller: ['$element', function(element) {
+        this.randomId = Math.round((Math.random() * 10) + 1);
+        console.log('randomId', this.randomId);
+        var paneList = this.panes.split(',');
+        this.openCount = paneList.length;
+        paneList.forEach(function(paneName) {
+          if (paneName === 'js') {
+            this.showJs = true;
+          } else if (paneName === 'css') {
+            this.showCss = true;
+          } else if (paneName === 'html') {
+            this.showHtml = true;
+          }
+        }.bind(this));
+
+        this.update = function() {
+          var jsSource = '<script type="text/javascript">' + this.js + '</script>';
+          var cssSource = '<style media="screen" type="text/css">' + this.css + '</style>';
+          var htmlSource = this.html.replace('{', '{{');
+
+          element.find('.outputIframe').contents().find('head').html(jsSource + cssSource);
+          element.find('.outputIframe').contents().find('body').html(htmlSource);
+        }.bind(this);
+      }],
+      controllerAs: 'ctrl',
+      bindToController: true
+    };
+}]);
+
+angular.module('jslab.components')
+.factory('_', ['$window', function($window) {
+  'use strict';
+
+  return $window._;
 }]);
 
 angular.module('jslab.components')

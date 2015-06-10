@@ -4,6 +4,10 @@ html, body {
 section {
   margin: 2rem 0; }
 
+.no-pad-lr {
+  padding-left: 0;
+  padding-right: 0; }
+
 .jslab-container {
   padding-left: 5vw;
   padding-right: 5vw; }
@@ -11,7 +15,21 @@ section {
 .btn-gh a {
   color: white; }
 
+.content {
+  position: absolute;
+  top: 0rem;
+  left: 5rem;
+  height: 100%;
+  width: 45%;
+  overflow-y: scroll; }
+
 .repl {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  height: 100%;
+  width: 52%;
+  overflow-y: scroll;
   padding-top: 2rem;
   padding-bottom: 2rem; }
 
@@ -20,10 +38,6 @@ section {
 
 .app-logo {
   height: 6em; }
-
-.ace_editor {
-  height: 50vh;
-  margin-top: 2vh; }
 
 pre {
   white-space: initial;
@@ -44,6 +58,52 @@ pre {
 
 .gh-link {
   margin-top: 20vh; }
+
+.ace_editor {
+  height: 100%; }
+
+.ace_tooltip {
+  width: 20%; }
+
+.codeContent {
+  border-bottom: 1px solid white; }
+
+.htmlContent {
+  border-bottom: 1px solid black; }
+
+.outputContent {
+  border: 1px solid black;
+  height: 96vh; }
+
+.codeContent,
+.outputContent {
+  position: relative;
+  z-index: 1; }
+
+.codeContent.code1 {
+  height: 96vh; }
+
+.codeContent.code2 {
+  height: 48vh; }
+
+.codeContent.code3 {
+  height: 32vh; }
+
+.outputIframe {
+  height: 100%;
+  width: 100%;
+  border: none; }
+
+.editorTag {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: lightgrey;
+  color: black; }
 
 .navbar-toggle {
   float: left;
