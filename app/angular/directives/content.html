@@ -13,7 +13,7 @@ angular.module('myModule')
 
     return {
       restrict: 'EA', // Restrict to element and attribute,
-      tempalteUrl: 'template.html',
+      templateUrl: 'template.html',
       scope: { // Create isolate scope
         name: '=', // Bind to property in parent scope
         age: @', // Bind to evaluated value of a property in parent scope
@@ -40,10 +40,13 @@ angular.module('myModule')
 
 <jslab-warning>
   Don't create directives with single word names. To make sure your directives don't conflict with others, use the same namespace that is used throughout the rest of the application.
+  <hr>
+  Define directives using camelCase notation such as "myDirective".
+  When using the directive in html make sure it is dash-delemited such as "my-directive".
 </jslab-warning>
 
 <jslab-tip>
   Declaring a scope variable in your directive creates an isolate scope that doesn't inherit from the parent scope. Data is then passed into the scope using HTML attributes when the directive is used. For scope variables using single word names is easier as it removes confusion over camel-case vs dashed names. Also, prefer having the attribute names in the template be the same as the scope variable name, so the shorthand scope syntax can be used.
   <hr/>
-  Be cognizant of the difference between <code>=</code> and <code>@</code> in the isolate scope definition. The <code>=</code> binds the scope property to a property on the parent scope. The <code>@</code> binds the scope property to the evaluated value of the passed in DOM attribute. What this means is that the attribute value is alwyas a string and is necessitates using <code>$observe</code> in the link function if you want to respond to changes in the bound attribute.
+  Be cognizant of the difference between <code>=</code> and <code>@</code> in the isolate scope definition. The <code>=</code> binds the scope property to a property on the parent scope. The <code>@</code> binds the scope property to the evaluated value of the passed in DOM attribute. What this means is that the attribute value is always a string and is necessitates using <code>$observe</code> in the link function if you want to respond to changes in the bound attribute.
 </jslab-tip>
