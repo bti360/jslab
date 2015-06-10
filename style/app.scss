@@ -21,7 +21,22 @@ section {
   }
 }
 
+.content {
+  position: absolute;
+  top: 0rem;
+  left: 5rem;
+  height: 100%;
+  width: 45%;
+  overflow-y: scroll;
+}
+
 .repl {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  height: 100%;
+  width: 55%;
+  overflow-y: scroll;
   padding: {
     top: 2rem;
     bottom: 2rem;
