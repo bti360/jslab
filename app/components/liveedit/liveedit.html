@@ -1,0 +1,34 @@
+<div class="container-fluid liveEdit">
+  <div class="row">
+    <div class="col-md-6 no-pad-lr">
+      <div ng-show="ctrl.showJs" class="jsContent codeContent code{{ctrl.openCount}}">
+        <div class="editorTag">JS</div>
+        <jslab-editor mode="javascript" code="ctrl.js" update="ctrl.update()"></jslab-editor>
+      </div>
+      <div ng-show="ctrl.showCss" class="cssContent codeContent code{{ctrl.openCount}}">
+        <div class="editorTag">CSS</div>
+        <jslab-editor mode="css" code="ctrl.css" update="ctrl.update()"></jslab-editor>
+      </div>
+      <div ng-show="ctrl.showHtml" class="htmlContent codeContent code{{ctrl.openCount}}">
+        <div class="editorTag">HTML</div>
+        <jslab-editor mode="html" code="ctrl.html" update="ctrl.update()"></jslab-editor>
+      </div>
+    </div>
+    <div class="col-md-6 no-pad-lr">
+      <div class="editorTag">Output</div>
+      <div class="outputContent">
+        <iframe class="outputIframe" id="iframe{{ctrl.randomId}}">
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+            <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+          </head>
+          <body>
+          </body>
+          </html>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>

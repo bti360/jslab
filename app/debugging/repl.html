@@ -1,5 +1,14 @@
-<pre class="_cssdeck_embed" 
-	data-pane="js,output" 
-    data-href="bti360debugging">
-</pre>
-<script type="text/javascript" src="js/cssdeck-embed.js"></script>
+<jslab-live-edit panes="js,css,html"
+js="angular.module('myApp', []);"
+css="body > div {
+  margin: 1vh;
+  padding: 2vw;
+  width: 90%;
+  border: 1px dashed black;
+}"
+html="<div ng-app ng-strict-di>
+    <input type='text' ng-model='yourName' placeholder='Enter a name here'>
+    <hr>
+    <h1>Hello {yourName}}!</h1>
+</div>">
+</jslab-live-edit>

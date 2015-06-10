@@ -1,34 +1,25 @@
 angular.module('jslab.components')
-.directive('jslabEditor', [function() {
+.directive('jslabEditor', ['_', function(_) {
   'use strict';
 
-  var controller = ['$scope', '$log', function($scope, $log) {
+  var controller = ['$scope', function($scope) {
     $scope.aceLoaded = function(editor) {
-      $log.debug('aceLoaded', editor, $scope);
       editor.$blockScrolling = Infinity;
+      if ($scope.mode !== 'js') {
+        editor.session.setOption('useWorker', false);
+      }
     };
-    $scope.aceChanged = function(e) {
-      var editor = e[1];
-      $log.debug('aceChanged', e);
-      var values = editor.getValue().split('\n');
-      var results = [];
-      angular.forEach(values, function(value) {
-        var result = '';
-        try {
-          result = $scope.$eval(value);
-        } catch (e) {
-          $log.error(e);
-        }
-        results.push(result);
-      });
-      $scope.results = results;
-    };
+    $scope.aceChanged = _.debounce(function(e) {
+      $scope.update();
+    }, 500);
   }];
 
   return {
       restrict: 'E',
       scope: {
-        code: '='
+        code: '=',
+        mode: '@',
+        update: '&'
       },
       templateUrl: 'components/editor/editor.html',
       controller: controller

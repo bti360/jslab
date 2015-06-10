@@ -1,0 +1,56 @@
+.ace_editor {
+  height: 100%;
+}
+
+.ace_tooltip {
+  width: 20%;
+}
+
+.codeContent {
+  border-bottom: 1px solid white;
+}
+
+.htmlContent {
+  border-bottom: 1px solid black;
+}
+
+.outputContent {
+  border: 1px solid black;
+  height: 96vh;
+}
+
+.codeContent,
+.outputContent {
+  position: relative;
+  z-index: 1;
+}
+
+.codeContent.code1 {
+  height: 96vh;
+}
+
+.codeContent.code2 {
+  height: 48vh;
+}
+
+.codeContent.code3 {
+  height: 32vh;
+}
+
+.outputIframe {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.editorTag {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: lightgrey;
+  color: black;
+}

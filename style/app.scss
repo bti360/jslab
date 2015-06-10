@@ -8,6 +8,13 @@ section {
   margin: 2rem 0;
 }
 
+.no-pad-lr {
+  padding: {
+    left: 0;
+    right: 0;
+  }
+}
+
 .jslab-container {
   padding: {
     left: 5vw;
@@ -49,11 +56,6 @@ section {
 
 .app-logo {
   height: 6em;
-}
-
-.ace_editor {
-  height: 50vh;
-  margin-top: 2vh;
 }
 
 pre {

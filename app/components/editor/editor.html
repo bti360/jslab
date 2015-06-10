@@ -1,15 +1,8 @@
 <div ui-ace="{
   useWrapMode : true,
   theme:'monokai',
-  mode: 'javascript',
+  mode: '{{mode}}',
   onLoad: aceLoaded,
   onChange: aceChanged
-}" ng-model="code"></div>
-<hr/>
-<div>
-  <pre>
-    <span ng-repeat="row in results track by $index">
-      {{$index + 1}}: {{row}}<br/>
-    </span>
-  </pre>
+}" ng-model="code">
 </div>
