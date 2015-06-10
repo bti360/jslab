@@ -16,6 +16,10 @@ function packageJsDependencies(min) {
       'bower_components/ace-builds/src-noconflict/ace.js',
     (min) ? 'bower_components/ace-builds/src-min-noconflict/mode-javascript.js' :
       'bower_components/ace-builds/src-noconflict/mode-javascript.js',
+    (min) ? 'bower_components/ace-builds/src-min-noconflict/mode-css.js' :
+      'bower_components/ace-builds/src-noconflict/mode-css.js',
+    (min) ? 'bower_components/ace-builds/src-min-noconflict/mode-html.js' :
+      'bower_components/ace-builds/src-noconflict/mode-html.js',
     (min) ? 'bower_components/ace-builds/src-min-noconflict/theme-monokai.js' :
       'bower_components/ace-builds/src-noconflict/theme-monokai.js',
     (min) ? 'bower_components/angular-ui-ace/ui-ace.min.js' :
@@ -24,7 +28,8 @@ function packageJsDependencies(min) {
       'bower_components/bootstrap/dist/js/bootstrap.js',
     (min) ? 'bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js' :
       'bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js',
-    'bower_components/modernizer/modernizr.js'
+    'bower_components/modernizer/modernizr.js',
+    'node_modules/lodash/index.js'
   ])
   .pipe(plugins.sourcemaps.init())
   .pipe(plugins.concat('vendor.js'))

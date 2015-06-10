@@ -34,5 +34,8 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "require-dir": "^0.3.0",
     "which": "^1.0.9"
+  },
+  "dependencies": {
+    "lodash": "^3.9.3"
   }
 }
