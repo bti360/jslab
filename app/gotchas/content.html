@@ -4,12 +4,12 @@
 <p>
 	Omitting the <code>var</code> when declaring a variable will make it global by default, which is rarely intended. Not
 	only do global variables pollute the global namespace, they can also result in hard-to-track bugs if the variable is
-	updated in different files. 
+	updated in different files.
 </p>
 
 <h4>Creating built-in objects with the <code>new</code> keyword</h4>
 <p>
-	New JS developers will often create objects such as Array and Object with the new keyword (i.e. <code>var arr = 
+	New JS developers will often create objects such as Array and Object with the new keyword (i.e. <code>var arr =
 	new Array()</code> and <code>var obj = new Object()</code>). These constructors are technically correct, but the preferred way is to use the object initializer version of each (i.e. <code>var arr = []</code> and <code>var obj = {}</code>). Not only are these more succinct, but in the case of the Array constructor, subtle differences arise in the way the constructor is used compared to the initializer (try passing an integer into new Array() and then inspect its length).
 </p>
 
@@ -20,6 +20,29 @@
 <h4>Strict Mode</h4>
 <p>
   Strict mode should be declared by adding <code>'use strict';</code> to the beginning of either a JavaScript file or a function. The use strict expression was added in ECMAScript 5 and instructs the browser to run your code in strict mode. Strict mode makes writing JavaScript safer by turning bad syntax into errors. For example, you can't have undeclared variables in strict mode. This means that all variables must be created using a <code>var</code> statement. If you then mistype the name of the variable later, an error will be thrown as that mistyped variable hasn't been declared. Without strict mode, a new variable would be created without giving you any feedback that something was wrong. Other things such as using the <code>delete</code> and <code>with</code> statements are also prohibited.
+</p>
+
+<h4>Iterating over Objects versus Arrays</h4>
+<p>
+  When iterating over an array use
+  <pre class="code-example">
+    var array = [1, 2, 3, 4]
+    for (var i = 0; i < array.length; i++) {
+      //array[i]
+    }
+  </pre>
+  When iterating over an object use
+  <pre class="code-example">
+    var object = {
+      "firstName": "BTI",
+      "lastName": "360",
+      "website": "bti360.com"
+    }
+    for (var property in object) {
+      //property
+    }
+  </pre>
+  *Note: that you shouldn't rely on the properties to be in a particular order.
 </p>
 
 <h3>References</h3>
