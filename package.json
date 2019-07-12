@@ -36,6 +36,6 @@
     "which": "^1.0.9"
   },
   "dependencies": {
-    "lodash": "^3.9.3"
+    "lodash": ">=4.17.13"
   }
 }
